@@ -5,15 +5,12 @@ import HelloWorld from '@/components/HelloWorld.vue'
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-        <RouterLink to="/login">Login</RouterLink>
+      <nav class="navbar-container">
+        <RouterLink class="navbar-link" to="/">News</RouterLink>
+<!--        <RouterLink class="navbar-link" to="/about">About</RouterLink>-->
+        <RouterLink class="navbar-link" to="/login">Login</RouterLink>
       </nav>
     </div>
   </header>
@@ -22,7 +19,35 @@ import HelloWorld from '@/components/HelloWorld.vue'
 </template>
 
 <style>
-@import '@/assets/base.css';
+/*@import '@/assets/base.css';*/
+
+body {
+  background: #181818;
+  color: var(--color-text);
+}
+
+:root {
+  --light-green: hsla(160, 100%, 37%, 0.2)
+}
+
+
+.navbar-container {
+  flex-direction: row;
+  display: flex;
+  width: 100%;
+  border: 1px black;
+  justify-content: space-evenly;
+}
+
+.navbar-link {
+  background: #42d392;
+  color: #213457;
+  border: 1px;
+  border-radius: 10%;
+  padding: 10px 30px 10px 30px;
+  font-size: 16px;
+  text-decoration: none;
+}
 
 #app {
   max-width: 1280px;
@@ -32,89 +57,89 @@ import HelloWorld from '@/components/HelloWorld.vue'
   font-weight: normal;
 }
 
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
+/*header {*/
+/*  line-height: 1.5;*/
+/*  max-height: 100vh;*/
+/*}*/
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
+/*.logo {*/
+/*  display: block;*/
+/*  margin: 0 auto 2rem;*/
+/*}*/
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-}
+/*a,*/
+/*.green {*/
+/*  text-decoration: none;*/
+/*  color: hsla(160, 100%, 37%, 1);*/
+/*  transition: 0.4s;*/
+/*}*/
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
-}
+/*@media (hover: hover) {*/
+/*  a:hover {*/
+/*    background-color: hsla(160, 100%, 37%, 0.2);*/
+/*  }*/
+/*}*/
 
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
+/*nav {*/
+/*  width: 100%;*/
+/*  font-size: 12px;*/
+/*  text-align: center;*/
+/*  margin-top: 2rem;*/
+/*}*/
 
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
+/*nav a.router-link-exact-active {*/
+/*  color: var(--color-text);*/
+/*}*/
 
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
+/*nav a.router-link-exact-active:hover {*/
+/*  background-color: transparent;*/
+/*}*/
 
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
+/*nav a {*/
+/*  display: inline-block;*/
+/*  padding: 0 1rem;*/
+/*  border-left: 1px solid var(--color-border);*/
+/*}*/
 
-nav a:first-of-type {
-  border: 0;
-}
+/*nav a:first-of-type {*/
+/*  border: 0;*/
+/*}*/
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
+/*@media (min-width: 1024px) {*/
+/*  body {*/
+/*    display: flex;*/
+/*    place-items: center;*/
+/*  }*/
 
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
+/*  #app {*/
+/*    display: grid;*/
+/*    grid-template-columns: 1fr 1fr;*/
+/*    padding: 0 2rem;*/
+/*  }*/
 
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
+/*  header {*/
+/*    display: flex;*/
+/*    place-items: center;*/
+/*    padding-right: calc(var(--section-gap) / 2);*/
+/*  }*/
 
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+/*  header .wrapper {*/
+/*    display: flex;*/
+/*    place-items: flex-start;*/
+/*    flex-wrap: wrap;*/
+/*  }*/
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
+/*  .logo {*/
+/*    margin: 0 2rem 0 0;*/
+/*  }*/
 
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
+/*  nav {*/
+/*    text-align: left;*/
+/*    margin-left: -1rem;*/
+/*    font-size: 1rem;*/
 
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
-}
+/*    padding: 1rem 0;*/
+/*    margin-top: 1rem;*/
+/*  }*/
+/*}*/
 </style>
