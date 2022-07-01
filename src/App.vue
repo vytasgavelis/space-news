@@ -8,7 +8,7 @@ import HelloWorld from '@/components/HelloWorld.vue'
 
     <div class="wrapper">
       <nav class="navbar-container">
-        <RouterLink class="navbar-link" to="/">News</RouterLink>
+        <RouterLink class="navbar-link" to="/news">News</RouterLink>
 <!--        <RouterLink class="navbar-link" to="/about">About</RouterLink>-->
         <RouterLink class="navbar-link" to="/login">Login</RouterLink>
       </nav>
@@ -19,7 +19,7 @@ import HelloWorld from '@/components/HelloWorld.vue'
 </template>
 
 <style>
-/*@import '@/assets/base.css';*/
+@import '@/assets/base.css';
 
 body {
   background: #181818;
@@ -43,7 +43,7 @@ body {
   background: #42d392;
   color: #213457;
   border: 1px;
-  border-radius: 10%;
+  border-radius: 4px;
   padding: 10px 30px 10px 30px;
   font-size: 16px;
   text-decoration: none;

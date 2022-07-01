@@ -4,6 +4,7 @@ import TheWelcome from '@/components/TheWelcome.vue'
 
 <template>
   <main>
-    <TheWelcome />
+<!--    <TheWelcome />-->
+    <h1> this is news </h1>
   </main>
 </template>
