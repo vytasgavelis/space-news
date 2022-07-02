@@ -7,7 +7,6 @@ const username = ref('')
 const password = ref('')
 
 const router = useRouter()
-const route = useRoute()
 
 // Do you always have to call .value manually? Or is there some easier method
 const isFormFilled = computed(() => {

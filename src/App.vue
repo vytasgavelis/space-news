@@ -27,7 +27,7 @@ body {
 }
 
 :root {
-  --light-green: hsla(160, 100%, 37%, 0.2)
+  --light-green: #42d392;
 }
 
 
