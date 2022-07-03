@@ -23,7 +23,7 @@ function login(): void {
 <template>
   <div>
     <div class="container">
-      <div class="form-container">
+      <div class="form-container  green-border">
         <h1>Login</h1>
         <form @submit.prevent="onSubmit">
           <div><label for="username">Username</label></div>
@@ -41,9 +41,7 @@ function login(): void {
 .form-container {
   display: flex;
   flex-direction: column;
-  border: 1px;
   /*color: #213457;*/
-  border-radius: 4px;
   padding: 10px 30px 10px 30px;
   font-size: 16px;
 }
@@ -68,8 +66,8 @@ function login(): void {
   flex-direction: row;
   display: flex;
   width: 100%;
-  border: 1px black;
   justify-content: space-evenly;
+  margin: 10px;
   text-align:center;
 }
 </style>

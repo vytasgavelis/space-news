@@ -15,7 +15,7 @@ const router = useRouter()
 </script>
 
 <template>
-  <div class="article">
+  <div class="article green-border">
     <img class="article-image" :src="data.imageUrl" alt="Article image">
     <div class="article-text">
       <a href=""><h3 @click="router.push({name: 'article', params: {id: data.id}})">{{ data.title }}</h3></a>
@@ -28,8 +28,6 @@ const router = useRouter()
 <!--TODO: make responsive -->
 <style scoped>
 .article {
-  border-radius: 4px;
-  border: 2px solid var(--light-green);
   min-height: 400px;
   max-height: 400px;
 }

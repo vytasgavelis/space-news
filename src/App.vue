@@ -63,6 +63,11 @@ body {
   font-weight: normal;
 }
 
+.green-border {
+  border-radius: 4px;
+  border: 2px solid var(--light-green);
+}
+
 /*header {*/
 /*  line-height: 1.5;*/
 /*  max-height: 100vh;*/

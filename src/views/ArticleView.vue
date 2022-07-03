@@ -26,7 +26,7 @@ onMounted(async () => {
   <div class="container">
     <p v-if="!loaded">Is loading...</p>
     <div v-else class="article-container">
-      <h1>{{ article.title }}</h1>
+      <h1 class="green-border">{{ article.title }}</h1>
       <div class="image-container">
         <!--  Show placeholder when image is not there  -->
         <img :src="article.imageUrl" alt="Article image">
@@ -80,8 +80,6 @@ onMounted(async () => {
 
 .article-container h1 {
   color: white;
-  border-radius: 4px;
-  border: 2px solid var(--light-green);
 }
 
 
