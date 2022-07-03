@@ -10,6 +10,7 @@ import HelloWorld from '@/components/HelloWorld.vue'
       <nav class="navbar-container">
         <RouterLink class="navbar-link" to="/news">News</RouterLink>
 <!--        <RouterLink class="navbar-link" to="/about">About</RouterLink>-->
+        <h1>Space News</h1>
         <RouterLink class="navbar-link" to="/login">Login</RouterLink>
       </nav>
     </div>
@@ -39,6 +40,10 @@ body {
   justify-content: space-evenly;
 }
 
+.navbar-container h1 {
+  color: white;
+}
+
 .navbar-link {
   background: #42d392;
   color: #213457;
@@ -47,6 +52,7 @@ body {
   padding: 10px 30px 10px 30px;
   font-size: 16px;
   text-decoration: none;
+  max-width: 200px;
 }
 
 #app {

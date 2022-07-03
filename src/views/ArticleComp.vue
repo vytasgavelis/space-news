@@ -2,23 +2,15 @@
 import type {Article} from "@/types/Article"
 import type {PropType} from "vue";
 import {compile, computed, onMounted} from "vue";
+import {useRouter} from "vue-router";
+import {formatDate} from '@/helpers/DateHelpers'
+
 
 const props = defineProps({
   data: Object as PropType<Article>,
 })
 
-
-function formatDate(input: string): string {
-  return new Date(Date.parse(input)).toLocaleString('en-US')
-}
-
-const publishedAt = computed(() => {
-  return formatDate(props.data.publishedAt) //TODO: data can be undefined here
-})
-
-const updatedAt = computed(() => {
-  return formatDate(props.data.updatedAt)
-})
+const router = useRouter()
 
 </script>
 
@@ -26,9 +18,9 @@ const updatedAt = computed(() => {
   <div class="article">
     <img class="article-image" :src="data.imageUrl" alt="Article image">
     <div class="article-text">
-      <h3>{{ data.title }}</h3>
-      <p>Published: {{ publishedAt }}</p>
-      <p>Updated: {{ updatedAt }}</p>
+      <a href=""><h3 @click="router.push({name: 'article', params: {id: data.id}})">{{ data.title }}</h3></a>
+      <p>Published: {{ formatDate(data.publishedAt) }}</p>
+      <p>Updated: {{ formatDate(data.updatedAt) }}</p>
     </div>
   </div>
 </template>
