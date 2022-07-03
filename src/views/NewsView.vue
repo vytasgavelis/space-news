@@ -4,27 +4,19 @@ import {onMounted, ref} from "vue"
 import type {Ref} from "vue"
 import type {Article} from "@/types/Article"
 import ArticleComp from "@/views/ArticleComp.vue";
+import {NewsClient} from "@/client/NewsClient";
 
 const articles: Ref<Article[]> = ref([])
+
+const client = new NewsClient()
 
 onMounted(() => {
   fetchNews()
 })
 
 async function fetchNews() {
-  const res = await fetch('https://api.spaceflightnewsapi.net/v3/articles')
-  const data:[] = await res.json()
-  data.forEach((article: Article) => {
-    articles.value.push({
-      id: article.id,
-      title: article.title,
-      url: article.url,
-      imageUrl: article.imageUrl,
-      summary: article.summary,
-      publishedAt: article.publishedAt,
-      updatedAt: article.updatedAt,
-    })
-  })
+  const data = await client.getArticles()
+  articles.value = data
 }
 
 </script>
@@ -42,9 +34,16 @@ async function fetchNews() {
 <style scoped>
 .article-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 10px;
   margin: 10px;
+}
+
+@media (min-width: 600px) {
+  .article-container { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 900px) {
+  .article-container { grid-template-columns: repeat(3, 1fr); }
 }
 
 </style>

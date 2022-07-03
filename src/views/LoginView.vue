@@ -24,7 +24,7 @@ function login(): void {
   <div>
     <div class="container">
       <div class="form-container">
-        <h1>Login page</h1>
+        <h1>Login</h1>
         <form @submit.prevent="onSubmit">
           <div><label for="username">Username</label></div>
           <div><input type="text" name="username" id="username" v-model="username"></div>

@@ -26,13 +26,13 @@ onMounted(async () => {
   <div class="container">
     <p v-if="!loaded">Is loading...</p>
     <div v-else class="article-container">
+      <h1>{{ article.title }}</h1>
       <div class="image-container">
         <!--  Show placeholder when image is not there  -->
         <img :src="article.imageUrl" alt="Article image">
       </div>
 
       <!--  Why am I not getting auto-complete here  -->
-      <h1>{{ article.title }}</h1>
       <h3>{{ article.newsSite }}</h3>
 
       <div>
@@ -66,6 +66,8 @@ onMounted(async () => {
 
 .image-container img {
   max-width: 50%;
+  /*border-radius: 4px;*/
+  /*border: 2px solid var(--light-green);*/
 }
 
 .article-container {
@@ -78,12 +80,15 @@ onMounted(async () => {
 
 .article-container h1 {
   color: white;
+  border-radius: 4px;
+  border: 2px solid var(--light-green);
 }
 
 
 .article-container .summary {
   color: white;
   text-align: left;
+  font-size: 16px;
 }
 
 </style>

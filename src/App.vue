@@ -10,7 +10,7 @@ import HelloWorld from '@/components/HelloWorld.vue'
       <nav class="navbar-container">
         <RouterLink class="navbar-link" to="/news">News</RouterLink>
 <!--        <RouterLink class="navbar-link" to="/about">About</RouterLink>-->
-        <h1>Space News</h1>
+        <h1>🚀Space News🚀</h1>
         <RouterLink class="navbar-link" to="/login">Login</RouterLink>
       </nav>
     </div>
