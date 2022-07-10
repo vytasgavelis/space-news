@@ -22,7 +22,8 @@ import {computed, defineProps} from "vue";
 <!--<button class="button"><slot>Button</slot></button>-->
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+$color: red;
 .button {
   background: #42d392;
   color: #213457;
