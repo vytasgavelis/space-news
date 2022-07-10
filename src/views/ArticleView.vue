@@ -5,6 +5,8 @@ import type {Ref} from "vue"
 import {NewsClient} from "@/client/NewsClient";
 import type {Article} from "@/types/Article"
 import {formatDate} from '@/helpers/DateHelpers'
+import Button from "@/components/Button.vue";
+import {useArticle} from "@/composables/useArticle";
 
 const article: Ref<Article | null> = ref(null)
 const loaded: Ref<boolean> = ref(false)
@@ -12,10 +14,8 @@ const loaded: Ref<boolean> = ref(false)
 const route = useRoute()
 const id = route.params.id // How to add typed property here
 
-const client = new NewsClient()
-
 onMounted(async () => {
-  const data = await client.getArticle(id)
+  const data = await useArticle(id)
   article.value = data
   loaded.value = true
 })
@@ -23,7 +23,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <Transition>
+  <Transition appear>
   <div class="container">
     <p v-if="!loaded">Is loading...</p>
     <div v-else class="article-container">
@@ -37,7 +37,8 @@ onMounted(async () => {
       <h3>{{ article.newsSite }}</h3>
 
       <div>
-        <a :href="article.url" target="_blank" class="navbar-link">Read full article</a>
+        <Button :href="article.url" target="_blank">Read full article</Button>
+<!--        <a :href="article.url" target="_blank" class="navbar-link">Read full article</a>-->
       </div>
 
       <p>Published: {{ formatDate(article.publishedAt) }}</p>

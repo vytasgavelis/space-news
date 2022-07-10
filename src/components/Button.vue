@@ -1,5 +1,25 @@
+<script setup lang="ts">
+import {computed, defineProps} from "vue";
+
+  const props = defineProps({
+    href: {
+      type: String,
+      default: '',
+    },
+  })
+
+  const type = computed(() => {
+    if (props.href) {
+      return 'a'
+    } else {
+      return 'button'
+    }
+  })
+</script>
+
 <template>
-<button class="button"><slot>Button</slot></button>
+  <component :is="type" :href="href" class="button"><slot /></component>
+<!--<button class="button"><slot>Button</slot></button>-->
 </template>
 
 <style scoped>

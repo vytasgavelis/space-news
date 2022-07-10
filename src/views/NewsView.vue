@@ -5,6 +5,8 @@ import type {Ref} from "vue"
 import type {Article} from "@/types/Article"
 import ArticleComp from "@/views/ArticleComp.vue";
 import {NewsClient} from "@/client/NewsClient";
+import Button from "@/components/Button.vue";
+import {useArticle} from "@/composables/useArticle";
 
 
 const articles: Ref<Article[]> = ref([])
@@ -21,11 +23,19 @@ async function fetchNews() {
   articles.value = data
 }
 
+async function showRandomArticle() {
+  const id = Math.round(Math.random() * 10);
+  const article = await useArticle(id)
+  alert(article.id + ' ' + article.title)
+}
+
 </script>
 
 <template>
+<!--  Is it possible to reuse this? So I dont have to put this before every component -->
   <Transition appear>
   <main>
+    <Button @click="showRandomArticle">🎲 Random article</Button>
     <div class="article-container">
       <div v-for="article in articles" :key="article.id">
         <ArticleComp  :data="article"/>
