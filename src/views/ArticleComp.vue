@@ -6,8 +6,12 @@ import {useRouter} from "vue-router";
 import {formatDate} from '@/helpers/DateHelpers'
 
 
+// Cia mete undefined errora nes nebuvo required: true
 const props = defineProps({
-  data: Object as PropType<Article>,
+  data: {
+    type: Object as PropType<Article>,
+    required: true,
+  },
 })
 
 const router = useRouter()
@@ -16,7 +20,7 @@ const router = useRouter()
 
 <template>
   <div class="article green-border">
-    <img class="article-image" :src="data.imageUrl" alt="Article image">
+    <img class="article-image" :src="data ? data.imageUrl : 'placeholder'" alt="Article image">
     <div class="article-text">
       <a href=""><h3 @click="router.push({name: 'article', params: {id: data.id}})">{{ data.title }}</h3></a>
       <p>Published: {{ formatDate(data.publishedAt) }}</p>

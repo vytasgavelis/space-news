@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
 import {ref, computed} from 'vue'
-
+import Button from "@/components/Button.vue";
 import { useRouter, useRoute } from 'vue-router'
 const username = ref('')
 const password = ref('')
@@ -21,6 +21,7 @@ function login(): void {
 </script>
 
 <template>
+  <Transition appear>
   <div>
     <div class="container">
       <div class="form-container  green-border">
@@ -30,11 +31,12 @@ function login(): void {
           <div><input type="text" name="username" id="username" v-model="username"></div>
           <div><label for="password">Password</label></div>
           <div><input type="password" name="password" id="password" v-model="password"></div>
-          <div><button @click="login" class="navbar-link" type="submit" :disabled="!isFormFilled">Submit</button></div>
+          <div><Button @click="login" :disabled="!isFormFilled">Submit</Button></div>
         </form>
       </div>
     </div>
   </div>
+  </Transition>
 </template>
 
 <style scoped>
@@ -69,5 +71,16 @@ function login(): void {
   justify-content: space-evenly;
   margin: 10px;
   text-align:center;
+}
+
+/*TODO: How to reuse these?*/
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.7s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
 }
 </style>

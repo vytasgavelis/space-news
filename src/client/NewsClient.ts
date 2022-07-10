@@ -28,8 +28,9 @@ export class NewsClient {
         const data:[Article] = await res.json()
         const result: Article[] = []
 
-        data.forEach((article: Article) => {
+        data.forEach((article) => {
             result.push({
+                // ...article
                 id: article.id,
                 title: article.title,
                 url: article.url,

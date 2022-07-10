@@ -1,4 +1,4 @@
-export interface Article {
+export interface Article  extends Response{
     id: number,
     title: string,
     url: string,
@@ -6,4 +6,9 @@ export interface Article {
     summary: string,
     publishedAt: string, //TODO change this to date
     updatedAt: string,
+}
+
+export interface Response {
+    statusCode: number,
+    message: string,
 }

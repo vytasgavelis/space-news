@@ -6,10 +6,12 @@ import type {Article} from "@/types/Article"
 import ArticleComp from "@/views/ArticleComp.vue";
 import {NewsClient} from "@/client/NewsClient";
 
+
 const articles: Ref<Article[]> = ref([])
 
 const client = new NewsClient()
 
+// Use fetch cia galima naudoti
 onMounted(() => {
   fetchNews()
 })
@@ -22,6 +24,7 @@ async function fetchNews() {
 </script>
 
 <template>
+  <Transition appear>
   <main>
     <div class="article-container">
       <div v-for="article in articles" :key="article.id">
@@ -29,6 +32,7 @@ async function fetchNews() {
       </div>
     </div>
   </main>
+  </Transition>
 </template>
 
 <style scoped>
@@ -44,6 +48,16 @@ async function fetchNews() {
 
 @media (min-width: 900px) {
   .article-container { grid-template-columns: repeat(3, 1fr); }
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.7s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
 }
 
 </style>

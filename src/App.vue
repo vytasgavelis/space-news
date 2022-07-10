@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from '@/components/HelloWorld.vue'
+import Button from "@/components/Button.vue";
 </script>
 
 <template>
@@ -8,10 +9,13 @@ import HelloWorld from '@/components/HelloWorld.vue'
 
     <div class="wrapper">
       <nav class="navbar-container">
-        <RouterLink class="navbar-link" to="/news">News</RouterLink>
+<!--        make this button a component-->
+        <RouterLink class="navbar-link" to="/news"><Button>News</Button></RouterLink>
 <!--        <RouterLink class="navbar-link" to="/about">About</RouterLink>-->
         <h1>🚀Space News🚀</h1>
-        <RouterLink class="navbar-link" to="/login">Login</RouterLink>
+        <RouterLink to="/login">
+          <Button>Login</Button>
+        </RouterLink>
       </nav>
     </div>
   </header>
@@ -40,20 +44,21 @@ body {
   justify-content: space-evenly;
 }
 
+/*Geriau naudot klases pavadinima o ne h1, p .... */
 .navbar-container h1 {
   color: white;
 }
 
-.navbar-link {
-  background: #42d392;
-  color: #213457;
-  border: 1px;
-  border-radius: 4px;
-  padding: 10px 30px 10px 30px;
-  font-size: 16px;
-  text-decoration: none;
-  max-width: 200px;
-}
+/*.navbar-link {*/
+/*  background: #42d392;*/
+/*  color: #213457;*/
+/*  border: 1px;*/
+/*  border-radius: 4px;*/
+/*  padding: 10px 30px 10px 30px;*/
+/*  font-size: 16px;*/
+/*  text-decoration: none;*/
+/*  max-width: 200px;*/
+/*}*/
 
 #app {
   max-width: 1280px;

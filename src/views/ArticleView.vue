@@ -23,6 +23,7 @@ onMounted(async () => {
 </script>
 
 <template>
+  <Transition>
   <div class="container">
     <p v-if="!loaded">Is loading...</p>
     <div v-else class="article-container">
@@ -45,7 +46,7 @@ onMounted(async () => {
       <p class="summary">{{ article.summary }}</p>
     </div>
   </div>
-
+  </Transition>
 </template>
 
 <style scoped>
@@ -89,4 +90,14 @@ onMounted(async () => {
   font-size: 16px;
 }
 
+/*TODO: How to reuse these?*/
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.7s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
 </style>
