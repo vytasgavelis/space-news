@@ -20,9 +20,9 @@ const router = useRouter()
 
 <template>
   <div class="article green-border">
-    <img class="article-image" :src="data ? data.imageUrl : 'placeholder'" alt="Article image">
-    <div class="article-text">
-      <a href=""><h3 @click="router.push({name: 'article', params: {id: data.id}})">{{ data.title }}</h3></a>
+    <img class="article__image" :src="data ? data.imageUrl : 'placeholder'" alt="Article image">
+    <div class="article__text">
+      <a href="" class="article__link"><h3 @click="router.push({name: 'article', params: {id: data.id}})">{{ data.title }}</h3></a>
       <p>Published: {{ formatDate(data.publishedAt) }}</p>
       <p>Updated: {{ formatDate(data.updatedAt) }}</p>
     </div>
@@ -30,25 +30,24 @@ const router = useRouter()
 </template>
 
 <!--TODO: make responsive -->
-<style scoped>
+<style scoped lang="scss">
 .article {
   min-height: 400px;
   max-height: 400px;
-}
 
-.article-image {
-  width: 100%;
-  height: 250px;
-/*/ / TODO: fix image quality .*/
-}
+  &__image {
+    width: 100%;
+    height: 250px;
+  }
 
-.article-text {
-  padding: 5px;
-}
+  &__text {
+    padding: 5px;
+  }
 
-.article-text h3 {
-  color: white;
-  min-height: 80px;
+  &__link {
+    color: white;
+    min-height: 80px;
+  }
 }
 
 </style>

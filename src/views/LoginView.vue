@@ -24,14 +24,14 @@ function login(): void {
   <Transition appear>
   <div>
     <div class="container">
-      <div class="form-container  green-border">
-        <h1>Login</h1>
+      <div class="form green-border">
+        <h1 class="form__header">Login</h1>
         <form @submit.prevent="onSubmit">
           <div><label for="username">Username</label></div>
           <div><input type="text" name="username" id="username" v-model="username"></div>
           <div><label for="password">Password</label></div>
           <div><input type="password" name="password" id="password" v-model="password"></div>
-          <div><Button @click="login" :disabled="!isFormFilled">Submit</Button></div>
+          <div><Button class="form__button" @click="login" :disabled="!isFormFilled">Submit</Button></div>
         </form>
       </div>
     </div>
@@ -39,29 +39,28 @@ function login(): void {
   </Transition>
 </template>
 
-<style scoped>
-.form-container {
+<style scoped lang="scss">
+.form {
   display: flex;
   flex-direction: column;
-  /*color: #213457;*/
   padding: 10px 30px 10px 30px;
   font-size: 16px;
-}
 
-.form-container h1 {
-  color: white;
-}
+  &__header {
+    color: white;
+  }
 
-.form-container input {
-  font-size: 20px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  border-radius: 4px;
-  border: none;
-}
+  &__button:disabled {
+    background: white;
+  }
 
-.form-container button:disabled {
-  background: white;
+  input {
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: none;
+  }
 }
 
 .container {
